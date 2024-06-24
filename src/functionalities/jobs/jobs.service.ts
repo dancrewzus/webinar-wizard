@@ -47,7 +47,7 @@ export class JobsService {
     private readonly handleErrors: HandleErrors,
   ) { }
 
-  @Cron('4 * * * *')
+  @Cron('*/4 * * * *')
   async checkWebinars() {
     console.log('Inicia evaluación')
     try {
