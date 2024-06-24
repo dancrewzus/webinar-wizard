@@ -22,7 +22,9 @@ async function bootstrap() {
   const { PORT } = process.env
   const app = await NestFactory.create(MainModule, { cors: true });
 
-  app.use(helmet())
+  app.use(helmet({
+    contentSecurityPolicy: false,
+  }))
   app.use(bodyParser.json({ limit: '2mb' }));
   app.use(bodyParser.urlencoded({ limit: '2mb', extended: true }));
   app.setGlobalPrefix('api/v1');
